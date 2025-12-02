@@ -1,0 +1,18 @@
+Networking Notes: The Foundation of Cloud Architecture ☁️
+
+Revisiting core networking concepts. Before building complex distributed systems, the transport layer needs to be solid.
+
+My Key Notes:
+1. Packets & Headers
+ -> Data moves in envelopes (packets).
+ -> The Header steers the traffic.
+ -> Cloud Application: Firewalls filter traffic based on header information, not the content inside.
+2. IP Addressing
+ -> IPv4: Limited, legacy standard.
+ -> IPv6: The future standard (hexadecimal), essential for massive scale.
+3. Security through Addressing
+ -> Public IP: Exposed to the internet (Load Balancers, Web Servers).
+ -> Private IP: Internal only (Databases, Backend Logic).
+ -> Rule: Never expose a Database via a Public IP.
+
+hashtag#TechNotes hashtag#AWS hashtag#Devops hashtag#SystemDesign
