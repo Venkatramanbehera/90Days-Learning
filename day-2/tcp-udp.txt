@@ -1,0 +1,21 @@
+Reliability is expensive. Speed is risky. Choosing between TCP and UDP.
+
+As an architect, every connection type is a trade-off. 
+We typically default to TCP because we value data integrity, 
+but "Reliability" comes with a latency cost.
+
+Notes:
+    📌 TCP (Transmission Control Protocol)
+        1. Mechanism: Uses a 3way handshake (SYN, SYN-ACK, ACK) to establish connections.
+        2. The Cost: High Overhead. Every Packet is acknowledge.
+        3. Use Case: Critical data where loss is unaccaptable(Databases, REST APIS, S3 file Upload).
+
+    📌 UDP (User Datagram Protocol)
+        1. Mechanism: (Fire and Forget) so no handshake, acknowledgments required.
+        2. The Benefit: Zero latency
+        3. Use Case: Real Time Applications( VoIP, DNS, Gaming ).
+
+Insight: This is why AWS Network Load Balancers (NLB) are so powerful—they operate at Layer 4, 
+handling millions of requests per second by simply forwarding these TCP/UDP flows without 
+inspecting the application content.
+    
