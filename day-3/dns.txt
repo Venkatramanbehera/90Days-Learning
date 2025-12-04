@@ -1,0 +1,14 @@
+DNS is more than just buying a domain name.
+
+Tackled the Domain Name System (DNS), specifically how we map traffic to infrastructure.
+
+It’s easy to think of DNS as just a URL bar feature, but in Cloud Architecture, it's a routing tool.
+
+Notes:
+📌 The "A" Record vs. "CNAME"
+    - A Record: Points a name directly to an IP address (192.168.x.x).
+    - CNAME: Points a name to another name (Alias). This is crucial when your underlying resources (like Load Balancers) change IPs dynamically.
+
+📌 The AWS "Alias" Superpower In standard DNS, you can't use a CNAME on a root domain (like company.com).
+    - The AWS Fix: Route 53 offers "Alias Records."
+    - Why it matters: It allows you to map a root domain directly to an AWS Load Balancer or S3 bucket, which standard DNS doesn't support. It also resolves faster than a CNAME.
