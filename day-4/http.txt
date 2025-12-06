@@ -1,0 +1,15 @@
+Why 404 is your fault, but 500 is mine.
+
+the application layer: HTTP, HTTPS, and the status codes that drive the web.
+
+Notes:
+📌 The TLS Handshake (Making HTTP Secure) HTTPS isn't magic; it's math. The "Handshake" is the negotiation phase where the Client and Server:
+    - Agree on an encryption method.
+    - Verify the Server's ID (SSL Certificate).
+    - Exchange keys to encrypt the actual data.
+    - In AWS, we often offload this "heavy lifting" to the Load Balancer (SSL Termination) so our backend servers can focus on logic, not math.
+
+📌 Status Codes: The Language of Debugging If you want to debug a system, look at the codes:
+    - 4xx (Client Error): The user asked for something wrong (e.g., 404 Not Found, 403 Forbidden).
+    - 5xx (Server Error): The system failed (e.g., 502 Bad Gateway, 500 Internal Error).
+    - Key Insight: If your alarms are firing 500s, wake up the engineer. If they are firing 400s, check the user's input.
