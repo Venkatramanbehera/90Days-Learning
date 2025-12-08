@@ -1,0 +1,18 @@
+Public vs. Private Subnets.
+
+architected the network topology that keeps data safe.
+
+Notes: 
+    📌 The Front Yard vs. The Bedroom
+        - Public Subnet: Has an Internet Gateway. Use this for Load Balancers and Bastion Hosts.
+        - Private Subnet: Air-gapped from the internet. Use this for Databases and App Logic.
+
+    📌 The NAT Gateway Bridge If a server is in a Private Subnet (Safe), how does it download updates or call APIs?
+        - The Solution: A NAT Gateway sits in the Public Subnet.
+        - The Flow: It acts as a one-way valve. Private servers can send requests out (Egress) to the internet, but the internet cannot initiate connections in (Ingress).
+
+    📌 GenAI Application
+        - Vector Database: Always goes in the Private Subnet.
+        - LLM Calls: If calling OpenAI, the private backend routes through the NAT. If calling AWS Bedrock, we can skip the NAT and use internal VPC Endpoints for better security.
+
+#AWS #CloudArchitecture #GenAI #Networking #DevOps

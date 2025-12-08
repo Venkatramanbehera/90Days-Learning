@@ -1,0 +1,16 @@
+The "Bouncer" of the Cloud: Understanding Firewalls & Ports.
+
+explored the security layer that protects infrastructure.
+
+My Notes:
+    📌 Ports are Doors, Firewalls are Keys
+        - Port 22 (SSH): The most dangerous port. It allows admin access. In production, this should never be open to 0.0.0.0/0 (The World).
+        - Port 5432 (Database): In RAG architectures, this is where the Vector Store lives. It must remain invisible to the public internet.
+    📌 The "Stateful" Nature of AWS AWS Security Groups are stateful.
+        - If you allow a request IN (Ingress), AWS automatically allows the response OUT (Egress).
+        - This simplifies configuration—you focus on who gets in.
+    📌 GenAI Design Pattern: Egress-Only Access Most GenAI apps need to call external APIs (OpenAI/Anthropic).
+        - The Risk: Giving servers Public IPs exposes them to attack.
+        - The Fix: Place servers in a Private Subnet and use a NAT Gateway. This acts as a one-way valve—servers can reach out to the API, but the internet cannot initiate connections to the server.
+
+#CyberSecurity #AWS #GenAI #SystemDesign #DevOps
