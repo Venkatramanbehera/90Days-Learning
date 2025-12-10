@@ -1,0 +1,17 @@
+chmod 777 is not a bug fix; it’s a security breach.
+
+Notes:
+    📌 The Math of Permissions Linux permissions are just simple addition:
+        1. Read (4) + Write (2) + Execute (1) = 7
+        2. So, 777 literally means "Anyone in the world can read, write, and execute this file."
+        3. Architect's Rule: Never use 777 to "fix" a permission error. You are effectively removing the lock from your front door.
+
+    📌 The AWS "Key" Rule If you try to SSH into an EC2 instance with a key file (.pem) set to 777, AWS will reject the connection immediately.
+        1. The Fix: chmod 400 key.pem
+        2. The Logic: Only the Owner (4) gets Read access. The Group (0) and Public (0) get nothing.
+
+    📌 GenAI Security: Protecting the Weights In a RAG architecture, your AI Model Weights (like Llama-3-70b.gguf) are your intellectual property.
+        1. Leaving them as 755 (Public Read) allows any compromised process on the server to steal the model.
+        2. They should be locked down to the specific user running the inference process.
+
+#Linux #AWS #CyberSecurity #DevOps #SystemDesign #CloudArchitecture

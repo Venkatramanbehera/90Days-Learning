@@ -1,0 +1,11 @@
+The Life of a Web Request
+
+The Network Flow: When you query a GenAI app, the journey is massive:
+    1. DNS: Translates app.com to an IP.
+    2. TCP: Ensures the data arrives intact (Reliability).
+    3. TLS: Encrypts the payload so hackers see garbage.
+    4. Load Balancer: Receives traffic in the Public Subnet.
+    5. Application: Processes logic in the Private Subnet (Air-gapped).
+    6. NAT Gateway: Allows the private app to "dial out" to OpenAI/Bedrock without exposing itself to incoming attacks.
+
+#AWS #CloudArchitecture #GenAI #Networking #DevOps
